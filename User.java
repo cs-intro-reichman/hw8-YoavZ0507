@@ -44,7 +44,7 @@
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
         for(int i=0 ; i<follows.length; i++){
-            if(follows[i].equals(name)){
+            if(follows[i]==name){
                 return true;
             }
         }
@@ -56,7 +56,7 @@
         if(fCount==10){
             return false;
         }
-        for(int i=0; i<fCount-1; i++){
+        for(int i=0; i<fCount; i++){
             if(follows[i]==name){
                 return false;
             }
@@ -68,9 +68,9 @@
     /** Removes the given name from the follows list of this user. If successful, returns true.
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
-        for(int i=0; i<fCount-1; i++){
+        for(int i=0; i<fCount; i++){
             if(follows[i]==name){
-                follows[i]="null";
+                follows[i]=null;
                 return true;
             }
         }
@@ -81,8 +81,8 @@
     /*  Notice: This is the size of the intersection of the two follows lists. */
     public int countMutual(User other) {
         int count=0;
-        for(int i=0; i<fCount-1;i++){
-            for(int j=0; j<other.getfCount()-1;j++){
+        for(int i=0; i<fCount;i++){
+            for(int j=0; j<other.getfCount();j++){
                 if(follows[i]==other.getfFollows()[j]){
                     count++;
                 }
@@ -94,9 +94,19 @@
     /** Checks is this user is a friend of the other user.
      *  (if two users follow each other, they are said to be "friends.") */
     public boolean isFriendOf(User other) {
-        //// Replace the following statement with your code
-        return false;
+        if(fCount==0||other.getfCount()==0){
+            return false;
+        }
+        if(this.follows(other)==false){
+            return false
+        }
+        if(other.follows(this)==false){
+            return false;
+        }
+
+        return true;
     }
+
     /** Returns this user's name, and the names that s/he follows. */
     public String toString() {
         String ans = name + " -> ";
