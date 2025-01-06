@@ -97,10 +97,10 @@
         if(fCount==0||other.getfCount()==0){
             return false;
         }
-        if(this.follows(other)==false){
-            return false
+        if(this.follows(other.getName())==false){
+            return false;
         }
-        if(other.follows(this)==false){
+        if(other.follows(name)==false){
             return false;
         }
 
