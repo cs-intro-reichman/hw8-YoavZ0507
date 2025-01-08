@@ -45,7 +45,7 @@
     public boolean follows(String name) {
 
         for(int i=0 ; i<fCount; i++){
-            if(follows[i] != null && follows[i].toLowerCase().equals((name.toLowerCase()))){
+            if(follows[i] != null && follows[i].equalsIgnoreCase(name)){
                 return true;
             }
         }
@@ -86,6 +86,7 @@
             for(int j=0; j<other.getfFollows().length;j++){
                 if(follows[i] != null && follows[i]==other.getfFollows()[j]){
                     count++;
+                    break;
                 }
             }
         }
