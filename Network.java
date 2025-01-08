@@ -69,7 +69,7 @@ public class Network {
         if( this.getUser(name1)== null || this.getUser(name2) == null ){
             return false;
         }
-        if(getUser(name2).follows(name1)){
+        if(getUser(name2).follows(name1)==true){
             return false;
         }
 
