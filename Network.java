@@ -30,7 +30,7 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
         for(int i=0;i<users.length;i++){
-            if(users[i].getName()==name){
+            if(users[i]!= null && users[i].getName()==name){
                 return users[i];
             }
         }
@@ -83,6 +83,7 @@ public class Network {
          temp= getUser(name2).addFollowee(name1);       
         return temp;
     }
+
     
     /** For the user with the given name, recommends another user to follow. The recommended user is
      *  the user that has the maximal mutual number of followees as the user with the given name. */
