@@ -71,10 +71,8 @@ public class Network {
         }
         if(getUser(name2).follows(name1)==true){
             return false;
-        }
-
-         temp= getUser(name2).addFollowee(name1);       
-        return true;
+        }    
+        return getUser(name2).addFollowee(name1);
     }
 
     
