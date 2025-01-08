@@ -69,6 +69,9 @@ public class Network {
         if( this.getUser(name1)== null || this.getUser(name2) == null ){
             return false;
         }
+        if(getUser(name2).follows(name1)){
+            return false;
+        }
 
          temp= getUser(name2).addFollowee(name1);       
         return true;
@@ -78,14 +81,16 @@ public class Network {
     /** For the user with the given name, recommends another user to follow. The recommended user is
      *  the user that has the maximal mutual number of followees as the user with the given name. */
     public String recommendWhoToFollow(String name) {
-     String recomended=null;
+     String recomended="";
+     int mutualfollowers= 0;
        User current= this.getUser(name); 
      for(int i=0;i<userCount;i++){
         if(name== users[i].getName()){
             continue;
         }
-            if(current.countMutual(users[i])> current.countMutual(this.getUser(recomended))){
+            if(current.countMutual(users[i])> mutualfollowers){
                 recomended=users[i].getName();
+                mutualfollowers= users[i].countMutual(users[i]);
             }
         }
         return recomended;
