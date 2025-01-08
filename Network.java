@@ -30,11 +30,11 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
         for(int i=0;i<users.length;i++){
-            if(users[i]!= null && users[i].getName().toLowerCase()==name.toLowerCase()){
+            if(users[i]!= null && users[i].getName()== name){
                 return users[i];
             }
         }
-        return null;
+      return null;
     }
 
     /** Adds a new user with the given name to this network.
@@ -62,6 +62,12 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         boolean temp=false;
+
+        if(name1==name2 || name1==null || name2==null){
+            return false;
+        }
+
+
         for(int i=0;i<userCount;i++){
             if(name1==users[i].getName()){
                 temp=true;
@@ -81,6 +87,7 @@ public class Network {
         if (temp=false){
             return false;
         }
+
          temp= getUser(name2).addFollowee(name1);       
         return temp;
     }
