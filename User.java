@@ -83,7 +83,7 @@
     public int countMutual(User other) {
         int count=0;
         for(int i=0; i<follows.length;i++){
-            for(int j=0; j<other.getfCount();j++){
+            for(int j=0; j<other.getfFollows().length;j++){
                 if(follows[i] != null && follows[i]==other.getfFollows()[j]){
                     count++;
                 }
