@@ -57,14 +57,12 @@
         if(fCount==10){
             return false;
         }
-        for(int i=0; i<fCount; i++){
-            if(follows[i]==name){
-                return false;
-            }
-        }
-        follows[fCount]=name;
-        fCount++;
-        return true;
+            if(this.follows(name)==false){
+                follows[fCount]=name;
+                fCount++;
+                return true;
+        }   
+        return false;
     }
 
     /** Removes the given name from the follows list of this user. If successful, returns true.
