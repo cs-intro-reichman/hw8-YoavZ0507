@@ -30,7 +30,7 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
         for(int i=0;i<users.length;i++){
-            if(users[i]!= null && users[i].getName()==name){
+            if(users[i]!= null && users[i].getName().toLowerCase()==name.toLowerCase()){
                 return users[i];
             }
         }
@@ -46,12 +46,13 @@ public class Network {
             return false;
         }
         for(int i=0;i<userCount;i++){
-            if(name==users[i].getName()){
+            if(users[i].getName().equals(name)){
                 return false;
             }
         }
         User current = new User(name);
         users[userCount]= current;
+        userCount++;
 
         return true;
     }
