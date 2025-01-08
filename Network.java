@@ -86,7 +86,7 @@ public class Network {
         if(name == users[i].getName()){
             continue;
         }
-            if(current.countMutual(users[i]) >= mutualfollowers){
+            if(current.countMutual(users[i]) > mutualfollowers){
                 recomended=users[i].getName();
                 mutualfollowers= users[i].countMutual(current);
             }
@@ -100,6 +100,9 @@ public class Network {
        String mostpopular= null;
        int folloewrs=0;
        for(int i=0;i<userCount;i++){
+        if(followeeCount(users[i].getName()) == folloewrs){
+          continue;  
+        }
         if(followeeCount(users[i].getName()) > folloewrs){
             mostpopular=users[i].getName();
             folloewrs= followeeCount(mostpopular);
