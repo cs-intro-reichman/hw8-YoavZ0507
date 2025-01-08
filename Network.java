@@ -66,30 +66,12 @@ public class Network {
         if(name1==name2 || name1==null || name2==null){
             return false;
         }
-
-
-        for(int i=0;i<userCount;i++){
-            if(name1==users[i].getName()){
-                temp=true;
-                break;
-            }
-        }
-        if (temp=false){
-            return false;
-        }
-
-        for(int i=0;i<userCount;i++){
-            if(name2==users[i].getName()){
-                temp=true;
-                break;
-            }
-        }
-        if (temp=false){
+        if( this.getUser(name1)== null || this.getUser(name2) == null ){
             return false;
         }
 
          temp= getUser(name2).addFollowee(name1);       
-        return temp;
+        return true;
     }
 
     
