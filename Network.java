@@ -100,9 +100,7 @@ public class Network {
        String mostpopular= null;
        int folloewrs= followeeCount(users[0].getName());
        for(int i=1;i<userCount;i++){
-        if(followeeCount(users[i].getName()) == folloewrs){
-            continue;
-        }
+        
        
         if(followeeCount(users[i].getName()) > folloewrs){
             mostpopular=users[i].getName();
