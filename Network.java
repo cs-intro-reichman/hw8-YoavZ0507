@@ -86,7 +86,7 @@ public class Network {
         if(name == users[i].getName()){
             continue;
         }
-            if(current.countMutual(users[i])> mutualfollowers){
+            if(current.countMutual(users[i]) >= mutualfollowers){
                 recomended=users[i].getName();
                 mutualfollowers= users[i].countMutual(current);
             }
@@ -127,7 +127,7 @@ public class Network {
     public String toString() {
         String ans= "Network:";
        for(int i=0;i<userCount;i++){
-       ans= ans + users[i].toString();
+       ans= ans + users[i].toString() + "\n" ;
        }
        return ans;
     }
