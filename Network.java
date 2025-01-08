@@ -72,7 +72,7 @@ public class Network {
         if(getUser(name2).follows(name1)==true){
             return false;
         }    
-        return getUser(name2).addFollowee(name1);
+        return getUser(name1).addFollowee(name2);
     }
 
     
