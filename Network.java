@@ -88,7 +88,7 @@ public class Network {
         }
             if(current.countMutual(users[i])> mutualfollowers){
                 recomended=users[i].getName();
-                mutualfollowers= users[i].countMutual(users[i]);
+                mutualfollowers= users[i].countMutual(current);
             }
         }
         return recomended;
