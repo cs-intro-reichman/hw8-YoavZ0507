@@ -79,19 +79,19 @@ public class Network {
     /** For the user with the given name, recommends another user to follow. The recommended user is
      *  the user that has the maximal mutual number of followees as the user with the given name. */
     public String recommendWhoToFollow(String name) {
-     String recomended=null;
+     User mostRecommendedUserToFollow = null;
      int mutualfollowers= 0;
-       User current= this.getUser(name); 
      for(int i=0;i<userCount;i++){
-        if(name == users[i].getName()){
+        if(users[i].getName().toLowerCase().equals(name.toLowerCase())){
             continue;
         }
-            if(current.countMutual(users[i]) > mutualfollowers){
-                recomended=users[i].getName();
-                mutualfollowers= users[i].countMutual(current);
+            if(mutualfollowers < getUser(name).countMutual(users[i])) {
+                mutualfollowers = getUser(name).countMutual(users[i]);
+                mostRecommendedUserToFollow = users[i];
             }
-            if (recomended != null) {
-                return recomended;
+            if (mostRecommendedUserToFollow != null) {
+
+                return mostRecommendedUserToFollow.getName();
             }
         }
         return null;
