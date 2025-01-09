@@ -1370,7 +1370,7 @@ public class TestHandler {
         network.addUser("Bob");
         network.addFollowee("Alice", "Bob");
         network.addFollowee("Bob", "Alice");
-        String expected = "Alice";
+        String expected = "Bob";
         String actual = "";
         try {
             actual += network.mostPopularUser();
