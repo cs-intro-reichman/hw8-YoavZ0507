@@ -85,8 +85,6 @@
         for(int i=0; i<fCount;i++){
                 if(other.follows(follows[i])){
                     count++;
-                    break;
-                
             }
         }
         return count;
