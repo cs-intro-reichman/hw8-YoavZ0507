@@ -90,22 +90,24 @@ public class Network {
                 recomended=users[i].getName();
                 mutualfollowers= users[i].countMutual(current);
             }
+            if (recomended != null) {
+                return recomended;
+            }
         }
-        return recomended;
+        return null;
     }
 
     /** Computes and returns the name of the most popular user in this network: 
      *  The user who appears the most in the follow lists of all the users. */
     public String mostPopularUser() {
        String mostpopular= null;
-       int folloewrs= followeeCount(users[0].getName());
-       for(int i=1;i<userCount;i++){
-        
-       
+       int folloewrs= 0;
+       for(int i=0;i<userCount;i++){ 
         if(followeeCount(users[i].getName()) > folloewrs){
             mostpopular=users[i].getName();
-            folloewrs= followeeCount(mostpopular);
+            folloewrs= followeeCount(users[i].getName());
         }
+
        }
         return mostpopular;
     }
